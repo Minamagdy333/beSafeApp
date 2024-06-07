@@ -23,7 +23,7 @@ class _MedicalInformationState extends State<MedicalInformation> {
       body: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
-          height: 530,
+          height: 690,
           width: 1100,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(1),
@@ -33,8 +33,49 @@ class _MedicalInformationState extends State<MedicalInformation> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Center(
+                    child: Container(
+                      width: 500,
+                      margin: const EdgeInsets.only(
+                        left: 120,
+                        top: 10,
+                        right: 135,
+                        bottom: 10,
+                      ),
+                      child: CircleAvatar(
+                        radius: 75,
+                        backgroundColor: Colors.grey[300],
+                        backgroundImage:
+                        _file == null ? null : FileImage(_file!),
+                        child: _file == null
+                            ? const Icon(
+                          Icons.person,
+                          size: 33,
+                          color: Colors.blueAccent,
+                        )
+                            : null,
+                      ),
+                    ),
+                  ),
+                  FloatingActionButton(
+                    mini: true,
+                    backgroundColor: Colors.white,
+                    onPressed: () {
+                      dialog();
+                    },
+                    child: const Icon(
+                      Icons.camera_alt_outlined,
+                      size: 22,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
               const SizedBox(
-                height: 40,
+                height: 30,
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
